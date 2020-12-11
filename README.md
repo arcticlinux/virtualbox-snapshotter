@@ -45,7 +45,8 @@ In order to automatize the backup process use the following guides:
     
 * **Snapshot retention**
 
-    If the number of snapshots of the target virtual machine is above 2,
+    If the number of snapshots of the target virtual machine is above 4,
     the script deletes and creates a snapshot every time it runs. In particular
     deletes the one before the oldest.
-    Before reaching the 2 snapshots the script doesn't delete.
+    Before reaching the 4 snapshots the script doesn't delete.
+    The number of snapshots can be adjusted in the delete_snapshots() method signature

@@ -104,6 +104,9 @@ def create_snapshot(machine):
 
     snap_date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
     snap_name = 'Snapshot ' + snap_date
+    # If there are no existing snapshots create a first snapshot with the machine name
+    if machine.snapshot_count == 0:
+        snap_name = machine.name
     description = 'Created at ' + snap_date
 
     if vm_initial_status:

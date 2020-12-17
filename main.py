@@ -53,7 +53,7 @@ def snapshot_info(machine, snapshot_id):
     :rtype : list
     """
     snapshot_obj = machine.find_snapshot(snapshot_id)
-    date = datetime.fromtimestamp(snapshot_obj.time_stamp / 1000.0).strftime("%d-%m-%Y %H:%M:%S")
+    date = datetime.fromtimestamp(snapshot_obj.time_stamp / 1000.0).strftime("%m-%d-%Y %H:%M:%S")
     return [snapshot_obj.name, date]
 
 
@@ -102,7 +102,7 @@ def create_snapshot(machine):
         proc = machine.launch_vm_process(session, "headless")
         proc.wait_for_completion(timeout=-1)
 
-    snap_date = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    snap_date = datetime.now().strftime("%m-%d-%Y %H:%M:%S")
     snap_name = 'Snapshot ' + snap_date
     # If there are no existing snapshots create a first snapshot with the machine name
     if machine.snapshot_count == 0:
